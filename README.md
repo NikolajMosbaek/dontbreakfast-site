@@ -18,3 +18,8 @@ Then open <http://localhost:8080/>.
 
 Push to `main`. GitHub Actions uploads `dist/` and deploys it to GitHub Pages.
 The workflow can also be run manually from the Actions tab.
+
+The `dbf.nsscode.com` DNS record must be a CNAME pointing to
+`nikolajmosbaek.github.io`. DNS is managed through Simply.com. After a DNS
+change, wait for GitHub to provision the certificate before enabling enforced
+HTTPS in the repository’s Pages settings.
