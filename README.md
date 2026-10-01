@@ -19,6 +19,10 @@ Then open <http://localhost:8080/>.
 Push to `main`. GitHub Actions uploads `dist/` and deploys it to GitHub Pages.
 The workflow can also be run manually from the Actions tab.
 
+Keep this website repository public while using the current GitHub plan.
+Changing it to private disables GitHub Pages; making it public again requires
+restoring Pages settings and deploying the site again.
+
 The `dbf.nsscode.com` DNS record must be a CNAME pointing to
 `nikolajmosbaek.github.io`. DNS is managed through Simply.com. After a DNS
 change, wait for GitHub to provision the certificate before enabling enforced
