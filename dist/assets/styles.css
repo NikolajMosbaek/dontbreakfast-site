@@ -1,7 +1,7 @@
 /*
  * Don't Break Fast, website. Same visual system as the nsscode.com front
  * page: always dark, Bricolage Grotesque for type, JetBrains Mono for
- * labels, the app's teal as the one accent. Motion is extra and switches off
+ * labels, the app's indigo as the one accent. Motion is extra and switches off
  * with reduced motion or in browsers without scroll-driven animations.
  */
 
@@ -30,7 +30,7 @@
   --ink-muted: #9c9e9a;
   --line-soft: rgb(255 255 255 / 0.09);
   --line: rgb(255 255 255 / 0.22);
-  --teal: #36c6b8;
+  --accent: #8e99e8;
   --sans: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -78,11 +78,11 @@ a {
 }
 
 ::selection {
-  background: rgb(54 198 184 / 0.35);
+  background: rgb(142 153 232 / 0.35);
 }
 
 :focus-visible {
-  outline: 3px solid var(--teal);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -235,8 +235,7 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--teal);
-  box-shadow: 0 0 12px var(--teal);
+  background: var(--accent);
 }
 
 /* Product page */
@@ -261,7 +260,7 @@ a {
   height: 760px;
   transform: translateX(-50%);
   background:
-    radial-gradient(closest-side at 40% 42%, rgb(54 198 184 / 0.22), transparent),
+    radial-gradient(closest-side at 40% 42%, rgb(142 153 232 / 0.22), transparent),
     radial-gradient(closest-side at 62% 36%, rgb(233 155 42 / 0.07), transparent);
   filter: blur(20px);
   pointer-events: none;
@@ -320,7 +319,7 @@ a {
   width: min(900px, 130vw);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  background: radial-gradient(closest-side, rgb(54 198 184 / 0.2), transparent 72%);
+  background: radial-gradient(closest-side, rgb(142 153 232 / 0.2), transparent 72%);
   filter: blur(10px);
   pointer-events: none;
 }
@@ -462,7 +461,7 @@ a {
 .doc p a {
   padding-bottom: 2px;
   color: var(--ink);
-  background-image: linear-gradient(var(--teal), var(--teal)), linear-gradient(rgb(255 255 255 / 0.3), rgb(255 255 255 / 0.3));
+  background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(rgb(255 255 255 / 0.3), rgb(255 255 255 / 0.3));
   background-size:
     0% 1px,
     100% 1px;
@@ -620,29 +619,6 @@ a {
   padding: 0 16px;
 }
 
-.tm-dial {
-  position: absolute;
-  left: 45px;
-  top: 160px;
-  width: 300px;
-  height: 300px;
-}
-
-.tm-dial svg {
-  display: block;
-  transform: rotate(-90deg);
-}
-
-.tm-readout {
-  position: absolute;
-  inset: 44px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
 .tm-big {
   font-size: 46px;
   font-weight: 600;
@@ -657,27 +633,130 @@ a {
   color: rgb(235 235 245 / 0.6);
 }
 
-.tm-goal {
+.tm-accent {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.tm-hero {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 492px;
+  left: 24px;
+  right: 24px;
+  top: 130px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 4px;
 }
 
-.tm-alarm {
+.tm-caption {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(235 235 245 / 0.6);
+}
+
+.tm-hero .tm-big {
+  font-size: 64px;
+}
+
+.tm-strip {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 300px;
+  padding: 16px 18px 14px;
+  border-radius: 22px;
+  background: #1c1c1e;
+}
+
+.tm-hours {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: rgb(235 235 245 / 0.3);
 }
 
-.tm-teal {
-  color: var(--teal);
+.tm-day {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 15px;
   font-weight: 500;
+  color: rgb(235 235 245 / 0.6);
+}
+
+/* One 24-hour day: b is fasted time, s the outline still to go, u the goal, em now. */
+.tm-rail {
+  position: relative;
+  height: 34px;
+  border-radius: 8px;
+  background: rgb(235 235 245 / 0.12);
+}
+
+.tm-rail i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgb(84 84 88 / 0.65);
+}
+
+.tm-rail b,
+.tm-rail s {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 8px;
+}
+
+.tm-rail b {
+  background: var(--accent);
+}
+
+.tm-rail s {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.tm-rail u {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 2px;
+  margin-left: -1px;
+  background: rgb(255 255 255 / 0.35);
+}
+
+.tm-rail em {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: #1c1c1e;
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.tm-foot {
+  position: relative;
+  height: 18px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgb(235 235 245 / 0.6);
+}
+
+.tm-foot span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.tm-started {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 556px;
+  font-size: 17px;
+  color: rgb(235 235 245 / 0.6);
 }
 
 .tm-end {
@@ -691,11 +770,9 @@ a {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  background: color-mix(in oklab, #36c6b8 82%, black);
+  background: color-mix(in oklab, var(--accent) 72%, black);
   border: 1px solid rgb(255 255 255 / 0.45);
-  box-shadow:
-    0 12px 28px color-mix(in oklab, #36c6b8 35%, transparent),
-    inset 0 1px 0 rgb(255 255 255 / 0.55);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55);
 }
 
 /* History screen */
@@ -800,7 +877,7 @@ a {
   top: 3px;
   height: 6px;
   border-radius: 3px;
-  background: var(--teal);
+  background: var(--accent);
 }
 
 .hs-foot {
@@ -852,7 +929,7 @@ a {
   gap: 4px;
   font-size: 13px;
   font-weight: 500;
-  color: var(--teal);
+  color: var(--accent);
 }
 
 .hs-miss {
