@@ -14,6 +14,16 @@ python3 -m http.server --directory dist 8080
 
 Then open <http://localhost:8080/>.
 
+## Stylesheet and script versions
+
+Every page loads `/assets/styles.css` and `/assets/site.js` with a `?v=` date.
+When either file changes, change that date in all eight pages in the same
+commit. GitHub Pages lets browsers cache assets for ten minutes, and without a
+new address a browser can render new markup with the old stylesheet.
+
+The app icon in the pages and `dist/assets/mark.svg` is the app's own
+`design/icon/01-weekly-rhythm.svg` from the SimpleFastingTimer repository.
+
 ## Deployment
 
 Push to `main`. GitHub Actions uploads `dist/` and deploys it to GitHub Pages.
